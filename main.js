@@ -38,6 +38,7 @@ function observador() {
       show();
       var displayName = user.displayName;
       var email = user.email;
+      console.log(email);
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
@@ -56,6 +57,6 @@ function observador() {
 observador();
 
 function show() {
-  var content = document.getElementById('content').value;
-  content.innerHTML  = 'solo usuario activo';
+  var content = document.getElementById('content');
+  content.textContent = 'solo usuario activo';
 }
