@@ -58,5 +58,7 @@ observador();
 
 function show() {
   var content = document.getElementById('content');
-  content.textContent = 'solo usuario activo';
+  content.textContent = `
+    <button class="btn btn-primary btn-sm" onclick="logout_config()">Cerrar session</button>
+  `;
 }
