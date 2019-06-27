@@ -3,6 +3,9 @@ function register_config() {
     var password = document.getElementById('password').value;
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(function () {
+      checkEmail();
+    })
     .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -35,11 +38,15 @@ function observador() {
     if (user) {
       // User is signed in.
       console.log('Existing user');
-      show();
+      show(user);
       var displayName = user.displayName;
       var email = user.email;
       console.log(email);
       var emailVerified = user.emailVerified;
+      console.log('****************');
+      console.log('verificado: ',emailVerified);
+      console.log('****************');
+      
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
@@ -56,13 +63,16 @@ function observador() {
 
 observador();
 
-function show() {
+function show(user) {
+  var User = user;
   var content = document.getElementById('content');
-  content.innerHTML = `
-    <h1>Welcome brother!, using my web site :)</h1>
+  if(User.emailVerified) {
+    content.innerHTML = `
+    <h3>Welcome brother!, using my web site :)</h3>
 
     <button class="btn btn-primary btn-sm" onclick="logout_config()">Cerrar session</button>
   `;
+  }
 }
 
 function logout_config() {
@@ -73,6 +83,18 @@ function logout_config() {
     .catch(function (e) {
       console.log(e);
     });
+}
+
+function checkEmail() {
+  var user = firebase.auth().currentUser;
+
+  user.sendEmailVerification().then(function() {
+    // Email sent.
+    console.log('Send email');
+    
+  }).catch(function(error) {
+    // An error happened.
+  });
 }
 
 // https://firebase.google.com/docs/auth/web/start
