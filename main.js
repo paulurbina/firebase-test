@@ -58,7 +58,21 @@ observador();
 
 function show() {
   var content = document.getElementById('content');
-  content.textContent = `
+  content.innerHTML = `
+    <h1>Welcome brother!, using my web site :)</h1>
+
     <button class="btn btn-primary btn-sm" onclick="logout_config()">Cerrar session</button>
   `;
 }
+
+function logout_config() {
+  firebase.auth().signOut()
+    .then(function() {
+      console.log('User existing...');
+    })
+    .catch(function (e) {
+      console.log(e);
+    });
+}
+
+// https://firebase.google.com/docs/auth/web/start
