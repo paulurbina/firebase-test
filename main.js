@@ -13,6 +13,16 @@ function register_config() {
         // ...
         console.log(errorCode);
         console.log(errorMessage);
+
+        const contentErrorRegister = document.querySelector('contentErrorRegister');
+        contentErrorRegister.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Register well </strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        `;
         
       });
 }
@@ -96,7 +106,15 @@ function show(user) {
 function logout_config() {
   firebase.auth().signOut()
     .then(function() {
-      console.log('User existing...');
+      var content = document.getElementById('content');
+      content.innerHTML = `
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Session close</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      `;
     })
     .catch(function (e) {
       console.log(e);
@@ -108,7 +126,15 @@ function checkEmail() {
 
   user.sendEmailVerification().then(function() {
     // Email sent.
-    console.log('Send email');
+    var content = document.getElementById('content');
+    content.innerHTML = `
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>E-mail sent</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    `;
     
   }).catch(function(error) {
     // An error happened.
