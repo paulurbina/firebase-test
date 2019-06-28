@@ -10,6 +10,10 @@
 
     <title>Firebase</title>
 
+    <!-- Cloud Firetore -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-app.js"></script>
     <!-- Add Firebase products that you want to use -->
@@ -36,7 +40,6 @@
   </head>
   <body>
 
-    <div class="">
       <div class="container">
         <nav class="navbar">
           <a class="navbar-brand text-white">
@@ -69,16 +72,56 @@
           </div>
         </div>
         <div class="row justify-content-center mt-4">
-          <div id="content">
-          </div>
+          <div id="content"></div>
           <div id="contentErrorRegister"></div>
         </div>
       </div>
-  
-    </div>
-     
+
+      <hr>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!-- table note -->
+
+      <!--  -->
+      <div class="container">
+            <div class="row justify-content-center">
+                <div class="mb-2">
+                    <h4>Add Note Memories</h4>
+                  </div>
+                  <div class="form-inline">
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control" id="title" placeholder="Title">
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="description" placeholder="Description">
+                    </div>
+                    <button type="button" class="btn btn-primary mb-2">Add Memories</button>
+                  </div>
+      
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+      </div>
 
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="firestore.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

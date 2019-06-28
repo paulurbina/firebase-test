@@ -123,7 +123,6 @@ function logout_config() {
 
 function checkEmail() {
   var user = firebase.auth().currentUser;
-
   user.sendEmailVerification().then(function() {
     // Email sent.
     var content = document.getElementById('content');
