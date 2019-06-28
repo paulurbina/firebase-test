@@ -153,11 +153,10 @@ function checkEmail() {
 var db = firebase.firestore();
 
 var addDataMemories = document.getElementById('addDataMemories');
-var title = document.getElementById('title').value;
-var description = document.getElementById('description').value;
 
 function addDataMemoriesFunc(event) {
-    console.log('click');
+    var title = document.getElementById('title').value;
+    var description = document.getElementById('description').value;
 
   db.collection("notes").add({
     title: title,
@@ -166,11 +165,12 @@ function addDataMemoriesFunc(event) {
   })
   .then(function(docRef) {
       // console.log("Document written with ID: ", docRef.id);
-      // console.log(docRef);
+      console.log(docRef);
       console.log('adding firestore');
-  })
+      document.querySelector('#title').value = '';
+      document.querySelector('#description').value = '';
+    })
   .catch(function(error) {
       console.error("Error adding document: ", error);
   });
-
 }
