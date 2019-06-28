@@ -14,27 +14,16 @@
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-app.js"></script>
+
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#config-web-app -->
-    <script>
+    <script src="firebaseConfig.js">
       // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyAAC5bcJXQGpgyX6kYC0-j8SUIn9D_1dow",
-        authDomain: "testing-firebase-6302b.firebaseapp.com",
-        databaseURL: "https://testing-firebase-6302b.firebaseio.com",
-        projectId: "testing-firebase-6302b",
-        storageBucket: "",
-        messagingSenderId: "157545740036",
-        appId: "1:157545740036:web:e0d20c064be19324"
-      };
       // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
     </script>
     
   </head>
@@ -96,7 +85,7 @@
                     <div class="form-group mx-sm-3 mb-2">
                         <input type="text" class="form-control" id="description" placeholder="Description">
                     </div>
-                    <button type="button" class="btn btn-primary mb-2">Add Memories</button>
+                    <button class="btn btn-primary mb-2" id="addDataMemories" onclick="addDataMemoriesFunc()">Add Memories</button>
                   </div>
       
                 <table class="table table-hover">
@@ -121,7 +110,6 @@
       </div>
 
     <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="firestore.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

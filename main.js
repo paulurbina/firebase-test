@@ -150,10 +150,27 @@ function checkEmail() {
 // *
 
 // Initialize Cloud Firestore through Firebase
-firebase.initializeApp({
-  apiKey: 'AIzaSyAAC5bcJXQGpgyX6kYC0-j8SUIn9D_1dow',
-  authDomain: 'testing-firebase-6302b.firebaseapp.com',
-  projectId: 'testing-firebase-6302b'
-});
-
 var db = firebase.firestore();
+
+var addDataMemories = document.getElementById('addDataMemories');
+var title = document.getElementById('title').value;
+var description = document.getElementById('description').value;
+
+function addDataMemoriesFunc(event) {
+    console.log('click');
+
+  db.collection("notes").add({
+    title: title,
+    description: description,
+    // born: 1815
+  })
+  .then(function(docRef) {
+      // console.log("Document written with ID: ", docRef.id);
+      // console.log(docRef);
+      console.log('adding firestore');
+  })
+  .catch(function(error) {
+      console.error("Error adding document: ", error);
+  });
+
+}
