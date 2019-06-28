@@ -64,12 +64,17 @@ function observador() {
 observador();
 
 function show(user) {
-  var User = user;
+  var user = user;
   var content = document.getElementById('content');
-  if(User.emailVerified) {
+  if(user.emailVerified) {
     content.innerHTML = `
-    <h3>Welcome brother!, using my web site :)</h3>
-
+    <div class="alert alert-success" role="alert">
+      <h6><strong>Email : </strong>${user.email}</h6>
+      <p>
+      <strong>Id Name: </strong>${user.uid} <br>
+      <strong>Email Verified: </strong>${user.emailVerified ? "check" : "Do it now"}
+      </p>
+    </div>
     <button class="btn btn-primary btn-sm" onclick="logout_config()">Cerrar session</button>
   `;
   }

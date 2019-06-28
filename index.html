@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Firebase test</title>
+    <title>Firebase</title>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-app.js"></script>
@@ -36,61 +36,47 @@
   </head>
   <body>
 
-    
-
-     <div class="container">
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-              <p class="display-4">Sign Up</p>
+    <div class="">
+      <div class="container">
+        <nav class="navbar">
+          <a class="navbar-brand text-white">
+            <img src="logo.png" alt="" style="width: 50%;">
+          </a>
+          <div class="form-inline">
+            <input class="form-control mr-sm-2" id="emailTwo" type="email" placeholder="Email" aria-label="email" autocomplete="off">
+            <input class="form-control mr-sm-2" id="passwordTwo" type="password" placeholder="Password" aria-label="password" autocomplete="off">
+            <button class="btn btn-success my-2 my-sm-0" onclick="login_config()">to Access</button>
+            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger my-2 my-sm-0 ml-1">Register</button>
           </div>
-
-           <div class="col-md-6 offset-md-3">
-              <div class="input-group mb-3 mt-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+        </nav>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                    <h5>User Register</h5>
                   </div>
-                  <input id="email" type="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-              <div class="input-group mb-3 mt-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+                  <div class="modal-body">
+                    <input type="email" class="form-control mb-3" id="email" placeholder="Email">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
                   </div>
-                  <input id="password" type="password" class="form-control" placeholder="clave" aria-label="Username" aria-describedby="basic-addon1">
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success my-2 my-sm-0 ml-1" onclick="register_config()">Register</button>
+                  </div>
               </div>
-              <button class="btn btn-primary btn-sm" onclick="register_config()">Register</button>
-           </div>
-        </div>
-        <!--  -->
-          <!-- CONFIG LOGIN -->
-        <!--  -->
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <p class="display-4">Sign In</p>
             </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <div id="content">
+          </div>
+            
+        </div>
+      </div>
   
-             <div class="col-md-6 offset-md-3">
-                <div class="input-group mb-3 mt-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">@</span>
-                    </div>
-                    <input id="emailTwo" type="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3 mt-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">@</span>
-                    </div>
-                    <input id="passwordTwo" type="password" class="form-control" placeholder="clave" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <button class="btn btn-success btn-sm" onclick="login_config()">Login</button>
-             </div>
-          </div>
-          <br>
-          <hr>
-          <div class="row">
-             <div id="content" class="col-md-6 offset-md-3">
-              </div>
-          </div>
-     </div>
+    </div>
+     
 
     <script type="text/javascript" src="main.js"></script>
 
