@@ -14,7 +14,7 @@ function register_config() {
         console.log(errorCode);
         console.log(errorMessage);
 
-        const contentErrorRegister = document.querySelector('contentErrorRegister');
+        const contentErrorRegister = document.querySelector('#contentErrorRegister');
         contentErrorRegister.innerHTML = `
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
           <strong>Register well </strong>
