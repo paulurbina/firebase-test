@@ -21,7 +21,9 @@ function login_config() {
   var emailTwo = document.getElementById('emailTwo').value;
   var passwordTwo = document.getElementById('passwordTwo').value;
 
-  firebase.auth().signInWithEmailAndPassword(emailTwo, passwordTwo).catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword(emailTwo, passwordTwo)
+  .then(function () {})
+  .catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -29,6 +31,17 @@ function login_config() {
 
     console.log(errorCode);
     console.log(errorMessage);
+
+    var content = document.getElementById('content');
+    content.innerHTML = `
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>there is no user!</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    `
+
     
   });
 }
