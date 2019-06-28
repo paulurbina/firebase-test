@@ -141,3 +141,19 @@ function checkEmail() {
 }
 
 // https://firebase.google.com/docs/auth/web/start
+
+// *
+// *
+// *
+// *
+// *
+// *
+
+// Initialize Cloud Firestore through Firebase
+firebase.initializeApp({
+  apiKey: 'AIzaSyAAC5bcJXQGpgyX6kYC0-j8SUIn9D_1dow',
+  authDomain: 'testing-firebase-6302b.firebaseapp.com',
+  projectId: 'testing-firebase-6302b'
+});
+
+var db = firebase.firestore();
