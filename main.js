@@ -154,23 +154,33 @@ var db = firebase.firestore();
 
 var addDataMemories = document.getElementById('addDataMemories');
 
-function addDataMemoriesFunc(event) {
-    var title = document.getElementById('title').value;
-    var description = document.getElementById('description').value;
+addDataMemories.addEventListener('click', addDataMemoriesFunc);
 
-  db.collection("notes").add({
-    title: title,
-    description: description,
-    // born: 1815
-  })
-  .then(function(docRef) {
-      // console.log("Document written with ID: ", docRef.id);
-      console.log(docRef);
-      console.log('adding firestore');
-      document.querySelector('#title').value = '';
-      document.querySelector('#description').value = '';
+function addDataMemoriesFunc() {
+  console.log('click function');
+  var data = {
+    title: document.querySelector('#title').value,
+    description: document.querySelector('#description').value
+  };
+  // let title = document.querySelector('#title').value || '';
+  // let description = document.querySelector('#description').value || '';
+  if (title === '' || description === '') {
+    alert('adding data from form!');
+  } else {
+    db.collection('notes').add({
+      title: data.title,
+      description: data.description
     })
-  .catch(function(error) {
-      console.error("Error adding document: ", error);
-  });
+    .then(function (docRef) { 
+      console.log("id", docRef.id);
+      console.log(docRef);
+      // document.querySelector('#title').value = '';
+      // document.querySelector('#description').value = '';
+    })
+     .catch(function(err) {
+       console.error("error adding document", error);
+     })
+  }
+
 }
+
