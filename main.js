@@ -184,19 +184,36 @@ function addDataMemoriesFunc() {
 
 }
 
+
 // Read Data
 let dataBody = document.getElementById('dataBody');
 db.collection("notes").onSnapshot((querySnapshot) => {
   dataBody.innerHTML = '';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().title}`);
+      // console.log(`${doc.id} => ${doc.data().title}`);
       dataBody.innerHTML += `
       <tr>
         <th scope="row">${doc.id}</th>
         <td>${doc.data().title}</td>
         <td>${doc.data().description}</td>
-        <td>@mdo</td>
+        <td>
+          <button  class="btn btn-danger btn-sm" onclick="deleteItem('${doc.id}')">Delete</button>
+        </td>
+        <td>
+          <button  class="btn btn-warning btn-sm" id="editItem()">Edit</button>
+        </td>
       </tr>
       `
   });
 });
+
+// Delete data
+function deleteItem(id){
+  db.collection("notes").doc(id).delete().then(function() {
+    console.log("Note successfully deleted!");
+  }).catch(function(error) {
+    console.error("Error removing document: ", error);
+  });
+}
+
+
