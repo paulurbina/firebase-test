@@ -200,7 +200,7 @@ db.collection("notes").onSnapshot((querySnapshot) => {
           <button  class="btn btn-danger btn-sm" onclick="deleteItem('${doc.id}')">Delete</button>
         </td>
         <td>
-          <button  class="btn btn-warning btn-sm" id="editItem()">Edit</button>
+          <button  class="btn btn-warning btn-sm" id="editItem('${doc.id}', '${doc.data().title}', '${doc.data().description}')">Edit</button>
         </td>
       </tr>
       `
@@ -216,4 +216,26 @@ function deleteItem(id){
   });
 }
 
+// update data item
+
+var washingtonRef = db.collection("notes").doc(id);
+
+function editItem(id, title, description) {
+  document.getElementById('title').value = title;
+  document.getElementById('description').value = description;
+
+  // Set the "capital" field of the city 'DC'
+  return washingtonRef.update({
+    title: data.title,
+    description: data.description
+  })
+  .then(function() {
+      console.log("Note successfully updated!");
+  })
+  .catch(function(error) {
+      // The document probably doesn't exist.
+      console.error("Error updating Note: ", error);
+  });
+
+}
 
