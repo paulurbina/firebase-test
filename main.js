@@ -184,3 +184,19 @@ function addDataMemoriesFunc() {
 
 }
 
+// Read Data
+let dataBody = document.getElementById('dataBody');
+db.collection("notes").onSnapshot((querySnapshot) => {
+  dataBody.innerHTML = '';
+  querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data().title}`);
+      dataBody.innerHTML += `
+      <tr>
+        <th scope="row">${doc.id}</th>
+        <td>${doc.data().title}</td>
+        <td>${doc.data().description}</td>
+        <td>@mdo</td>
+      </tr>
+      `
+  });
+});
